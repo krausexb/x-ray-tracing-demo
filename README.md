@@ -1,6 +1,9 @@
 # About the Demo
-The Demo deploys a "distributed" serverless applications, that is made of two dummy Services/Functions, which are integrated by Amazon SQS.
-[](./ServiceMap.png)
+The Demo deploys a distributed serverless application, that is instrumented with AWS X-Ray.
+The front door of the application is an Amazon API Gateway that receives Events and stores them in an Amazon SQS Queue.
+A dummy Serverless Function reads from the Queue, processes the event and stores the processed event in a second Queue for another Service.
+
+![](ServiceMap.png)
 
 ## How to run the demo
 
