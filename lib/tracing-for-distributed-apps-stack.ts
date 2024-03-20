@@ -33,8 +33,6 @@ export class TracingForDistributedAppsStack extends cdk.Stack {
       queueName: 'QueueTwo',
     });
 
-    const powertoolsLayerPython = new LambdaPowertoolsLayer(this, 'PowertoolsLayer', {runtimeFamily: lambda.RuntimeFamily.PYTHON});
-
     const powertoolsLayer = lambda.LayerVersion.fromLayerVersionArn(this, 'Powertools', "arn:aws:lambda:us-east-1:017000801446:layer:AWSLambdaPowertoolsPythonV2:67")
     
     const lambdaOne = new lambda.Function(this, 'LambdaOne', {

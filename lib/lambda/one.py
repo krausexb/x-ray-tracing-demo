@@ -1,6 +1,5 @@
 import boto3
 import os
-import uuid
 import boto3
 
 from aws_lambda_powertools import Tracer
@@ -41,9 +40,6 @@ def process_messages(event):
 @logger.inject_lambda_context()
 @tracer.capture_lambda_handler()
 def lambda_handler(event, context):
-    UNIQUE_REQUEST_ID = str(uuid.uuid4())
-    logger.set_correlation_id(UNIQUE_REQUEST_ID)
-
     logger.info("### Starting Lambda Function One")
     logger.info("### Records in Event:")
     sqs_batch_response = process_messages(event)
