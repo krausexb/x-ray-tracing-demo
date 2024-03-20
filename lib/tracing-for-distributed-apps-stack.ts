@@ -6,7 +6,6 @@ import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as eventsources from 'aws-cdk-lib/aws-lambda-event-sources';
-import {LambdaPowertoolsLayer} from 'cdk-aws-lambda-powertools-layer';
 import * as apigwsqs from './apigw-sqs';
 
 export class TracingForDistributedAppsStack extends cdk.Stack {

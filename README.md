@@ -1,14 +1,20 @@
-# Welcome to your CDK TypeScript project
+# About the Demo
+The Demo deploys a "distributed" serverless applications, that is made of two dummy Services/Functions, which are integrated by Amazon SQS.
+[](./ServiceMap.png)
 
-This is a blank project for CDK development with TypeScript.
+## How to run the demo
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+### Deploy the CDK App
+- `cdk bootstrap`
+- `cdk deploy`
 
-## Useful commands
+### Send message
+Send some messages to the API Gateway Endpoint and review the traces in the CloudWatch Console
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"message":"Hello World"}' \
+  https://{YOUR_API_GATEWAY_ENDPOINT}/dev/
+```
+
